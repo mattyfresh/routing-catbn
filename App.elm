@@ -11,6 +11,7 @@ import Models exposing (..)
 import Routes exposing (..)
 import Routing exposing (..)
 import Views exposing (renderView)
+import Updates exposing (..)
 
 
 main : Program Never
@@ -26,9 +27,4 @@ main =
 
 init : ( Route, Address ) -> ( Model, Cmd msg )
 init ( route, address ) =
-    ( Model address route "Carter and the Bad News", Cmd.none )
-
-
-update : msg -> Model -> ( Model, Cmd msg )
-update msg model =
-    ( model, Cmd.none )
+    ( Model address route "Bad News.", Cmd.none )
