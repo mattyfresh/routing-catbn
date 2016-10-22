@@ -13,6 +13,7 @@ import Models exposing (..)
 import BandInfo exposing (..)
 
 
+renderView : Model -> Html Msg
 renderView model =
     case model.route of
         MainPage ->
@@ -22,37 +23,18 @@ renderView model =
             aboutPage model
 
         PhotoPage ->
-            photoPage
+            photoPage model
 
 
-
--- @TODO get rid of this sh!t
-
-
-imageStyles : List ( String, String )
-imageStyles =
-    [ ( "border", "solid black 4px" )
-    , ( "display", "block" )
-    , ( "margin", "auto" )
-    , ( "max-width", "660px" )
-    , ( "width", "100%" )
-    ]
-
-
+mainPage : Model -> Html Msg
 mainPage model =
     div [ class "main__container" ]
-        [ nav [ class "main__container-nav" ]
-            [ a [ onClick NavigateToHome, attribute "style" "padding: 10px; cursor: pointer; font-family: sans-serif;" ] [ text "Home" ]
-            , a [ onClick NavigateToAbout, attribute "style" "padding: 10px; cursor: pointer; margin-left: 20px; font-family: sans-serif;" ] [ text "About" ]
-            ]
-        , h1 [ attribute "style" "text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; margin-bottom: 0; padding: 12px;" ]
-            [ text ("Carter and the " ++ model.bandName) ]
+        [ sharedTopNav model
         , div []
             [ h2 [ attribute "style" "text-align: center;font-family: monospace; font-weight: normal; margin-top: 0; padding: 20px;" ] [ text "Tunes coming soon!" ]
             , img
                 [ id "main-image"
                 , src "images/run.gif"
-                , style imageStyles
                 ]
                 []
             , input
@@ -72,23 +54,32 @@ mainPage model =
         ]
 
 
+sharedTopNav : Model -> Html Msg
+sharedTopNav model =
+    div [ class "shared__top" ]
+        [ nav [ class "main__container-nav" ]
+            [ a [ onClick NavigateToHome, attribute "style" "padding: 10px; cursor: pointer; font-family: sans-serif;" ] [ text "Home" ]
+            , a [ onClick NavigateToAbout, attribute "style" "padding: 10px; cursor: pointer; margin-left: 20px; font-family: sans-serif;" ] [ text "About" ]
+            , a [ onClick NavigateToPhotos, attribute "style" "padding: 10px; cursor: pointer; margin-left: 20px; font-family: sans-serif;" ] [ text "Photos" ]
+            ]
+        , h1 [ attribute "style" "text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; margin-bottom: 0; padding: 12px;" ]
+            [ text ("Carter and the " ++ model.bandName) ]
+        ]
+
+
 renderBios : BandMember -> Html a
 renderBios bio =
     ul [ attribute "style" "list-style-type: none; text-align: center; padding: 0; width: 90%; margin: auto;" ]
         [ li [ attribute "style" "display: block;", class "bio__name" ] [ text bio.name ]
-        , li [] [ img [ src bio.imageUrl, style imageStyles ] [] ]
+        , li [] [ img [ src bio.imageUrl ] [] ]
         , li [ class "bio__quote" ] [ text bio.quote ]
         ]
 
 
+aboutPage : Model -> Html Msg
 aboutPage model =
     div [ class "main__container" ]
-        [ nav [ class "main__container-nav" ]
-            [ a [ onClick NavigateToHome, attribute "style" "padding: 10px; cursor: pointer; font-family: sans-serif;" ] [ text "Home" ]
-            , a [ onClick NavigateToAbout, attribute "style" "padding: 10px; cursor: pointer; margin-left: 20px; font-family: sans-serif;" ] [ text "About" ]
-            ]
-        , h1 [ attribute "style" "text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; margin-bottom: 0; padding: 12px;" ]
-            [ text ("Carter and the " ++ model.bandName) ]
+        [ sharedTopNav model
         , div []
             [ h2 [ attribute "style" "text-align: center;font-family: monospace; font-weight: normal; margin-top: 0; padding: 20px;" ] [ text "About Us" ]
             , div [] (List.map renderBios bandMembers)
@@ -96,5 +87,11 @@ aboutPage model =
         ]
 
 
-photoPage =
-    div [] [ text "This is the photos page suckers!" ]
+photoPage model =
+    div [ class "main__container" ]
+        [ sharedTopNav model
+        , div []
+            [ h2 [ attribute "style" "text-align: center;font-family: monospace; font-weight: normal; margin-top: 0; padding: 20px;" ] [ text "Photos" ]
+            , img [ src "images/pirate-flag.jpg" ] []
+            ]
+        ]

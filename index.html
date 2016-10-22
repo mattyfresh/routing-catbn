@@ -4,6 +4,15 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Carter and The Bad News</title>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body>
+		<div id="catbn-container"></div>
+		<script>
+			var catbn = document.getElementById('catbn-container');
+			var app = Elm.App.embed(catbn);
+		</script>
+
 		<style>
 			.main__container {
 				margin: auto;
@@ -16,8 +25,7 @@
 				text-decoration: underline;
 			}
 
-			#main-image,
-			input {
+			#main-image {
 				cursor: url('images/star-cursor.png'), auto;
 			}
 
@@ -51,14 +59,14 @@
 				margin-left: 10px;
 				text-align: left;
 			}
+
+			img {
+				border: 4px solid black;
+				display: block;
+				margin: auto;
+				max-width: 660px;
+				width: 100%;
+			}
 		</style>
-		<script type="text/javascript" src="main.js"></script>
-	</head>
-	<body>
-		<div id="catbn-container"></div>
-		<script>
-			var catbn = document.getElementById('catbn-container');
-			var app = Elm.App.embed(catbn);
-		</script>
 	</body>
 </html>

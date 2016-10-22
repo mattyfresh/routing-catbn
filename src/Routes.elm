@@ -38,5 +38,5 @@ routes =
 hopConfig : Config
 hopConfig =
     { basePath = ""
-    , hash = False
+    , hash = True
     }
