@@ -31,10 +31,10 @@ mainPage model =
     div [ class "main__container" ]
         [ sharedTopNav model
         , div []
-            [ h2 [ attribute "style" "text-align: center;font-family: monospace; font-weight: normal; margin-top: 0; padding: 20px;" ] [ text "Tunes coming soon!" ]
+            [ h2 [ attribute "style" "text-align: center;font-family: monospace; font-weight: normal; margin-top: 0; padding: 20px;" ] [ text "Tunes coming this week!  Sahhh!" ]
             , img
                 [ id "main-image"
-                , src "images/run.gif"
+                , src "images/run-compressed.gif"
                 ]
                 []
             , input
@@ -87,11 +87,16 @@ aboutPage model =
         ]
 
 
+photoPage : Model -> Html Msg
 photoPage model =
     div [ class "main__container" ]
         [ sharedTopNav model
         , div []
             [ h2 [ attribute "style" "text-align: center;font-family: monospace; font-weight: normal; margin-top: 0; padding: 20px;" ] [ text "Photos" ]
-            , img [ src "images/pirate-flag.jpg" ] []
+            , div [ class "image-wrapper" ] [ img [ src "images/pirate-flag.jpg", alt "Weird Pirate Days" ] [] ]
+            , div [ class "image-wrapper" ] [ img [ src "images/the-gang.jpg", alt "CATBN" ] [] ]
+            , div [ class "image-wrapper" ] [ img [ src "images/carter-sah.jpg", alt "Carter, sah dude!" ] [] ]
+            , div [ class "image-wrapper" ] [ img [ src "images/matty-recording.jpg", alt "Matty hitting the shred button" ] [] ]
+            , div [ class "image-wrapper" ] [ img [ src "images/tony-pointing.jpg", alt "Tony Derby making me smell his finger" ] [] ]
             ]
         ]
