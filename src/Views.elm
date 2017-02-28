@@ -45,7 +45,7 @@ mainPage model =
                 []
             , div [ style [ ( "text-align", "center" ) ] ]
                 [ a
-                    [ href ("mailto:matthew.padich@gmail.com?subject=Carter and the " ++ model.bandName)
+                    [ href ("mailto:carterandthebadnews@gmail.com?subject=Carter and the " ++ model.bandName)
                     , attribute "style" "font-family: monospace; font-size: 16px; color: black; display: inline-block; margin: 60px 0 30px; padding: 10px;"
                     ]
                     [ text "Email Us!" ]
@@ -69,7 +69,7 @@ sharedTopNav model =
 
 renderBios : BandMember -> Html a
 renderBios bio =
-    ul [ attribute "style" "list-style-type: none; text-align: center; padding: 0; width: 90%; margin: auto;" ]
+    ul [ attribute "style" "list-style-type: none; text-align: center; padding: 0;" ]
         [ li [ attribute "style" "display: block;", class "bio__name" ] [ text bio.name ]
         , li [] [ img [ src bio.imageUrl ] [] ]
         , li [ class "bio__quote" ] [ text bio.quote ]
