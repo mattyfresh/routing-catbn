@@ -1,11 +1,15 @@
 module Models exposing (..)
 
-import Hop.Types exposing (Address)
-import Routes exposing (Route)
+import Navigation
+
+
+type Page
+    = Home
+    | About
+    | Photos
 
 
 type alias Model =
-    { address : Address
-    , route : Route
+    { page : Page
     , bandName : String
     }

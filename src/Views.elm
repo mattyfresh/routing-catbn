@@ -3,11 +3,6 @@ module Views exposing (..)
 import Html exposing (..)
 import Html.Events exposing (onClick, onInput)
 import Html.Attributes exposing (..)
-
-
--- my own modules
-
-import Routes exposing (..)
 import Updates exposing (..)
 import Models exposing (..)
 import BandInfo exposing (..)
@@ -15,14 +10,14 @@ import BandInfo exposing (..)
 
 renderView : Model -> Html Msg
 renderView model =
-    case model.route of
-        MainPage ->
+    case model.page of
+        Home ->
             mainPage model
 
-        AboutPage ->
+        About ->
             aboutPage model
 
-        PhotoPage ->
+        Photos ->
             photoPage model
 
 
@@ -58,9 +53,9 @@ sharedTopNav : Model -> Html Msg
 sharedTopNav model =
     div [ class "shared__top" ]
         [ nav [ class "main__container-nav" ]
-            [ a [ onClick NavigateToHome, attribute "style" "padding: 10px; cursor: pointer; font-family: sans-serif;" ] [ text "Home" ]
-            , a [ onClick NavigateToAbout, attribute "style" "padding: 10px; cursor: pointer; margin-left: 20px; font-family: sans-serif;" ] [ text "About" ]
-            , a [ onClick NavigateToPhotos, attribute "style" "padding: 10px; cursor: pointer; margin-left: 20px; font-family: sans-serif;" ] [ text "Photos" ]
+            [ a [ href "#home", attribute "style" "padding: 10px; cursor: pointer; font-family: sans-serif;" ] [ text "Home" ]
+            , a [ href "#about", attribute "style" "padding: 10px; cursor: pointer; margin-left: 20px; font-family: sans-serif;" ] [ text "About" ]
+            , a [ href "#photos", attribute "style" "padding: 10px; cursor: pointer; margin-left: 20px; font-family: sans-serif;" ] [ text "Photos" ]
             ]
         , h1 [ attribute "style" "text-align: center;font-family: monospace; font-size: 40px; font-weight: normal; margin-bottom: 0; padding: 12px;" ]
             [ text ("Carter and the " ++ model.bandName) ]
@@ -69,7 +64,7 @@ sharedTopNav model =
 
 renderBios : BandMember -> Html a
 renderBios bio =
-    ul [ attribute "style" "list-style-type: none; text-align: center; padding: 0;" ]
+    ul [ attribute "style" "list-style-type: none; text-align: center; padding: 0; width: 90%; margin: auto;" ]
         [ li [ attribute "style" "display: block;", class "bio__name" ] [ text bio.name ]
         , li [] [ img [ src bio.imageUrl ] [] ]
         , li [ class "bio__quote" ] [ text bio.quote ]
