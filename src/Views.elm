@@ -87,9 +87,9 @@ photoPage model =
         [ sharedTopNav model
         , div []
             [ h2 [ attribute "style" "text-align: center;font-family: monospace; font-weight: normal; margin-top: 0; padding: 20px;" ] [ text "Photos" ]
-            , div [ class "image-wrapper" ] [ img [ src "images/projection.jpg", alt "ohh fancy" ] [] ]
-            , div [ class "image-wrapper" ] [ img [ src "images/cape.jpg", alt "pirates!" ] [] ]
             , div [ class "image-wrapper" ] [ img [ src "images/tony-and-matt.jpg", alt "Tony Derbz and Matty Fresh" ] [] ]
+            , div [ class "image-wrapper" ] [ img [ src "images/hi-carter.jpg", alt "ohh fancy" ] [] ]
+            , div [ class "image-wrapper" ] [ img [ src "images/cape.jpg", alt "pirates!" ] [] ]
             , div [ class "image-wrapper" ] [ img [ src "images/dope.jpg", alt "dope." ] [] ]
             , div [ class "image-wrapper" ] [ img [ src "images/the-gang.jpg", alt "CATBN" ] [] ]
             ]

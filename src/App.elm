@@ -18,4 +18,4 @@ main =
 
 init : Location -> ( Model, Cmd msg )
 init location =
-    ( Model Home "Bad News.", Cmd.none )
+    ( Model (getPage location.hash) "Bad News.", Cmd.none )
