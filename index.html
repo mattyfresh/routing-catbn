@@ -20,6 +20,10 @@
 			color: black;
 		}
 
+		* {
+			cursor: url('images/star-cursor.png'), auto;
+		}
+
 		.main__container {
 			margin: auto;
 			max-width: 760px;
@@ -29,10 +33,6 @@
 			padding: 20px 20px 0;
 			text-align: center;
 			text-decoration: underline;
-		}
-
-		#main-image {
-			cursor: url('images/star-cursor.png'), auto;
 		}
 
 		input {
@@ -45,6 +45,7 @@
 			outline: black solid 3px;
 		}
 
+
 		#main-image:hover,
 		#main-image:active {
 			-webkit-filter: invert(100%);
@@ -53,9 +54,9 @@
 		}
 
 		.bio__quote {
-			padding: 20px 40px;
 			font-family: sans-serif;
 			font-size: 18px;
+			padding: 20px 40px;
 		}
 
 		.bio__name {
@@ -76,6 +77,24 @@
 			margin: auto;
 			max-width: 660px;
 			width: 97%;
+		}
+
+		.video__wrapper {
+			cursor: url('images/star-cursor.png'), auto;
+			height: 0;
+			margin: 40px 0;
+			padding-bottom: 56.25%;
+			padding-top: 25px;
+			position: relative;
+		}
+
+		.video__wrapper iframe {
+			border: none;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
 		}
 	</style>
 </body>

@@ -26,21 +26,23 @@ mainPage model =
     div [ class "main__container" ]
         [ sharedTopNav model
         , div []
-            [ img
-                [ id "main-image"
-                , src "images/run-compressed.gif"
+            [ div [ class "video__wrapper" ]
+                [ iframe
+                    [ id "main-image"
+                    , src "https://www.youtube.com/embed/MIwxWKRh7I0"
+                    ]
+                    []
                 ]
-                []
             , input
                 [ placeholder "Change our band name yah dude!"
                 , onInput ChangeBandName
-                , attribute "style" "display: block; height: 34px; font-size: 16px; width: 50%;max-width: 500px; min-width: 300px; margin: 20px auto 0; font-family: monospace;"
+                , attribute "style" "cursor: text; display: block; height: 34px; font-size: 16px; width: 50%;max-width: 500px; min-width: 300px; margin: 20px auto 0; font-family: monospace;"
                 ]
                 []
             , div [ style [ ( "text-align", "center" ) ] ]
                 [ a
                     [ href ("mailto:carterandthebadnews@gmail.com?subject=Carter and the " ++ model.bandName)
-                    , attribute "style" "font-family: monospace; font-size: 16px; color: black; display: inline-block; margin: 60px 0 30px; padding: 10px;"
+                    , attribute "style" "cursor: pointer; font-family: monospace; font-size: 16px; color: black; display: inline-block; margin: 60px 0 30px; padding: 10px;"
                     ]
                     [ text "Email Us!" ]
                 ]
