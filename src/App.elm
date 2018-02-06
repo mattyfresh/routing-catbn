@@ -18,4 +18,11 @@ main =
 
 init : Location -> ( Model, Cmd msg )
 init location =
-    ( Model (getPage location.hash) "Bad News.", Cmd.none )
+    let
+        initialLocation =
+            getPage location.hash
+
+        initialBandName =
+            "Bad News."
+    in
+        ( Model initialLocation initialBandName, Cmd.none )
