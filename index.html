@@ -59,8 +59,12 @@
 			text-align: left;
 		}
 
+		.photos-section {
+			column-count: 1;
+		}
+
 		.image-wrapper {
-			margin: 30px auto;
+			margin-bottom: 30px;
 		}
 
 		img {
@@ -68,7 +72,7 @@
 			display: block;
 			margin: auto;
 			max-width: 660px;
-			width: 97%;
+			width: 96%;
 		}
 
 		.video__wrapper {
@@ -86,6 +90,13 @@
 			position: absolute;
 			top: 0;
 			width: 100%;
+		}
+
+		@media screen and (min-width: 728px) {
+			.photos-section {
+				column-count: 2;
+				column-gap: 30px;
+			}
 		}
 
 		@media screen and (min-width: 1200px) {
